@@ -3,7 +3,7 @@ extends:
   file: javascript/pipeline.yaml
 agent:
   label: jenkins-nodejs12x
-  container: nodejs12x
+  image: builder-nodejs12x
 pipelines:
   pullRequest:
     build:
