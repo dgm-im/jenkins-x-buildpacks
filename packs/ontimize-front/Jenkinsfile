@@ -1,0 +1,22 @@
+pipeline {
+    agent {
+        label "jenkins-nodejs12x"
+    }
+    stages {
+      stage('Build') {
+        when {
+          branch 'master'
+        }
+        steps {
+          container('mybuilder') {
+              // your steps
+          }
+        }
+      }
+    }
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}

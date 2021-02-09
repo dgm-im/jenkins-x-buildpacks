@@ -1,6 +1,9 @@
 extends:
   import: classic
   file: javascript/pipeline.yaml
+agent:
+  label: jenkins-nodejs12x
+  container: builder-nodejs12x
 pipelines:
   pullRequest:
     build:
