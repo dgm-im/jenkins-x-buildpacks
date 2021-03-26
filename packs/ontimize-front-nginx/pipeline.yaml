@@ -1,6 +1,8 @@
 extends:
   import: classic
   file: pipeline.yaml
+agent:
+  image: nodejs12x
 pipelines:
   pullRequest:
     build:
@@ -25,7 +27,6 @@ pipelines:
           name: make-preview
         - sh: jx preview --app $APP_NAME --dir ../..
           name: jx-preview
-
   release:
     setVersion:
       steps:
