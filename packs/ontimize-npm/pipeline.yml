@@ -17,9 +17,9 @@ pipelines:
       #  name: npm-test
     postBuild:
       steps:
-      - sh: npm config set //nexus/repository/npm-upload/:_auth=$(echo "admin:$(jx step credential -s nexus -k password)" | base64)
+      - sh: npm config set //nexus/repository/npm-private/:_auth=$(echo "admin:$(jx step credential -s nexus -k password)" | base64)
         name: npmrc
-      - sh: npm publish  --registry=http://nexus/repository/npm-upload . 
+      - sh: npm publish  --registry=http://nexus/repository/npm-private . 
         name: npm-publish
   release:
     setVersion:
@@ -39,9 +39,9 @@ pipelines:
       #  name: npm-test
     postBuild:
       steps:
-      - sh: npm config set //nexus/repository/npm-upload/:_auth=$(echo "admin:$(jx step credential -s nexus -k password)" | base64)
+      - sh: npm config set //nexus/repository/npm-private/:_auth=$(echo "admin:$(jx step credential -s nexus -k password)" | base64)
         name: npmrc
-      - sh: npm publish  --registry=http://nexus/repository/npm-upload .
+      - sh: npm publish  --registry=http://nexus/repository/npm-private .
         name: npm-publish
 
 #jx step next-version --filename package.json
